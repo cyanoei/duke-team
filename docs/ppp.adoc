@@ -1,47 +1,52 @@
-= John Doe - Project Portfolio
+= Rebecca Oei - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
-== PROJECT: AddressBook - Level 4
+== PROJECT: Eggventory
 
 ---
 
 == Overview
 
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Eggventory (Engineering Got General Inventory) is an inventory management system that is specially designed to be used by lab technicians in Engineering labs. It was created to facilitate the tracking of movement of inventory in an Engineering
+laboratory in an easy-to-use interface. Its main feature is the ability to manage loans made to students, consisting of automatic checking for sufficient stock quantity, reminders for overdue loans, and a means of mass-recording loans to a large group. Eggventory can also be used to offer additional information specific to electronics, such as datasheets and links to similar components.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+* *Feature*: added *???*
+** What it does: 
+** Justification: 
+** Highlights: 
 ** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
 
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
+* *Minor enhancement*: 
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Shared Code Contributions*
+** Logic (Parser) module: Developed main Parser structure. Wrote Parser code for ParseAdd and ParseDelete. 
+** Loan Feature: Created the base code for Loan feature, including Loan and LoanList classes. 
+
+* *Code contributed*: https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei[Reposense] [https://github.com[Test code]] _Note: Contribution graph was affected by a rebase, but contributions are still properly attributed._
 
 * *Other contributions*:
 
 ** Project management:
-*** Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+*** As team leader of Eggventory - in charge of keeping track of the project progress, managing issues and PRs for milestones. 
 ** Enhancements to existing features:
 *** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
 *** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
+*** Was responsible for final editing of Week 10 submission of User Guide and Developer guide.
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
-** Tools:
-*** Integrated a third party library (Natty) to the project (https://github.com[#42])
-*** Integrated a new Github plugin (CircleCI) to the team repo
+*** PRs reviewed (with non-trivial review comments): 
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/217[#217] 
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/220[#220]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/223[#223]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/251[#251]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/261[#261]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/269[#269]
+*** Team Bugfixes: 
 
-_{you can add/remove categories in the list above}_
 
 == Contributions to the User Guide
 
