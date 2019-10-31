@@ -33,10 +33,10 @@ laboratory in an easy-to-use interface. Its main feature is the ability to manag
 ** Project management:
 *** As team leader of Eggventory - in charge of keeping track of the project progress, managing issues and PRs for milestones. 
 ** Enhancements to existing features:
-*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-*** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
+*** 
+*** 
 ** Documentation:
-*** Was responsible for final editing of Week 10 submission of User Guide and Developer guide.
+*** Was responsible for final editing and submission of Week 7 and Week 10 drafts of User Guide and Developer guide.
 ** Community:
 *** PRs reviewed (with non-trivial review comments): 
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/217[#217] 
@@ -45,11 +45,11 @@ https://github.com/AY1920S1-CS2113T-F09-3/main/pull/223[#223]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/251[#251]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/261[#261]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/269[#269]
-*** Team Bugfixes: 
-
+*** Bugs fixed for team code: 
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/210[#210]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/240[#240]
 
 == Contributions to the User Guide
-
 
 |===
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
