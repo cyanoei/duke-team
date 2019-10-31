@@ -1,7 +1,7 @@
 = Rebecca Oei - Project Portfolio
 :site-section: AboutUs
-:imagesDir: ../images
-:stylesDir: ../stylesheets
+:imagesDir: ./images
+:stylesDir: ./stylesheets
 
 == PROJECT: Eggventory
 
@@ -76,7 +76,7 @@ include::../UserGuide.adoc[tag=dataencryption]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-*5.3.1 Parser*
+== *5.3.1 Parser*
 
 (API: 
 https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/Parser.java[Parser.java],
@@ -105,18 +105,34 @@ The Parser submodules
 * Parse any other parameters that follow.
 * Create and return the relevant Command object.
  
-*Figure 6* below is a sequence diagram demonstrating how the entire parser module works. In this example, the user has entered the command “add stockType Resistor”.
+Figure 6 below is a sequence diagram demonstrating how the entire parser module works. In this example, the user has entered the command “add stockType Resistor”.
 
-_Placeholder for Fig. 6_
+image::parser_seq.png[Figure 5: Parser]
 
-Figure 6: Sequence diagram for adding a stock. 
+*Figure 6*: Sequence diagram for adding a stock. 
 
 *Design Consideration*
 
 We have chosen to implement the parser module this way to abstract out the different levels of processing user inputs. The main Parser class is only concerned with determining what the first word is, and creating command objects for single word inputs. If a multi-word inputs are given, the main Parser only has to determine if the first word is a valid command type. Thereafter, it does not parse the rest of the input itself, but instead calls the relevant submodule to process the rest of the input string.  
 
+---
 
-include::../DeveloperGuide.adoc[tag=undoredo]
+== 6.5 Setting and checking minimum required quantity
+The tracking of the minimum required quantity of stocks is an additional feature on top of the basic Eggventory. The feature is a means for users to ensure that they get warnings when loans and lost items cause the quantity of their available stock to become lower than a value they have defined.
 
-include::../DeveloperGuide.adoc[tag=dataencryption]
+*6.5.1 Implementation*
+
+It is implemented by storing a minimum attribute inside each stock class. The minimum required quantity is an optional parameter. Users can specify when adding new stocks if it has a minimum required quantity to keep. Otherwise, by default, the value of minimum is set to set to 0. The attribute can thereafter be updated using the edit command.
+
+Checking of the minimum required quantity is required in three scenarios. 
+
+* When the user decreases the total quantity of a stock.
+* When loans of stock are made.
+* When items are recorded as lost (directly changed to lost, or reported lost after being loaned out).
+
+In each of these situations, an exception is thrown if the new total available quantity is lower than the minimum required quantity.
+ 
+*6.5.2 List of insufficient stock*
+ 
+To enable users to quickly determine which stocks need to be replenished, we can use an ArrayList (within the StockList class) to store a list of stocks which do not meet their minimum required quantity. The list would be displayed to the user with a single list command. When stocks are added or loans returned, checks will be performed within those commands to determine if the Stock can be removed from the list. 
 
