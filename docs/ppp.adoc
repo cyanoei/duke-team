@@ -16,24 +16,37 @@ laboratory in an easy-to-use interface. Eggventory interprets user commands thro
 
 * *Feature: Minimum required quantity*
 ** What it does: Allows users to set a minimum required quantity of a stock. This the minimum amount of a particular stock that the inventory has to have on hand at any given time. After loans or lost items are recorded, Eggventory will warn users if the stock quantity has fallen below the minimum. Users can also request a list of stocks that are present in less than the minimum required quantity.
-** Justification: Eggventory inherently can notify users when a stock has completely run out, but it is not reasonable to wait until this point. Realistically, users would prefer to have some notice beforehand, to have time to order new stocks or track down overdue loans. This feature also allows the minimum value to be user-defined, depending the importance of the stock within the inventory.   
+
+** Justification: Eggventory inherently can notify users when a stock has completely run out, but it is not reasonable to wait until the stock is completely depleted. Realistically, users would prefer to have some notice beforehand, to have time to order new stocks or track down overdue loans. This feature also allows the minimum value to be user-defined, depending the importance of the stock within the inventory.   
+
 ** Highlights: This feature requires careful integration with the "edit minimum", "loan" and "lost" functions. There are thus three different scenarios (detailed in the Developer Guide below) where checks have to be performed. 
 
-* *Shared Code Contributions*
-** Logic (Parser) module: Developed main Parser structure. Wrote Parser code for ParseAdd and ParseDelete. 
-** Loan Feature: Created the base code for Loan feature, including Loan and LoanList classes. 
 
-* *Code contributed*: https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei[Reposense] [https://github.com[Test code]] _Note: Contribution graph was affected by a rebase, but contributions are still properly attributed._
+* *Shared Code Contributions*
+** Logic (Parser) module: Developed main Parser structure. Wrote logic for ParseAdd and ParseDelete. (Code: 
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/Parser.java[Parser.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseAdd.java[ParseAdd.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseDelete.java[ParseDelete.java])
+
+** Loan Feature: Created the base code for Loan feature. (Code: 
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/Loan.java[Loan.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/LoanPair.java[LoanPair.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/LoanList.java[LoanList.java])
+
+** UniqueStock extension: Created base code for UniqueStock extention (has since been pushed back to v2.0). (Code:
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/items/UniqueStock.java[UniqueStock.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/items/Item.java[Item.java])
+
+* *Code contributed*: https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei[Reposense] _Note: Contribution graph was affected by a rebase, but contributions are still properly attributed._
 
 * *Other contributions*:
 
 ** Project management:
 *** As team leader of Eggventory - in charge of keeping track of the project progress, managing issues and PRs for milestones. 
-** Enhancements to existing features:
-*** 
-*** 
+
 ** Documentation:
 *** Was responsible for final editing and submission of Week 7 and Week 10 drafts of User Guide and Developer guide.
+
 ** Community:
 *** PRs reviewed (with non-trivial review comments): 
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/217[#217] 
@@ -67,9 +80,3 @@ include::../DeveloperGuide.adoc[tag=undoredo]
 
 include::../DeveloperGuide.adoc[tag=dataencryption]
 
-
-== PROJECT: PowerPointLabs
-
----
-
-_{Optionally, you may include other projects in your portfolio.}_
