@@ -76,6 +76,46 @@ include::../UserGuide.adoc[tag=dataencryption]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
+*5.3.1 Parser*
+
+(API: 
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/Parser.java[Parser.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseAdd.java[ParseAdd.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseDelete.java[ParseDelete.java], 
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseEdit.java[ParseEdit.java],
+https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseList.java[ParseList.java])
+
+The parser is called by the main Eggventory class to parse user commands. It is responsible for processing command strings entered by the user, and returning Command objects that the main Eggventory class can execute.
+ 
+The main Parser class
+
+* Receives the user’s full input string as a parameter, and parses the first word, separated by a space.
+* Determines, based on the first word, what kind of command the user is making.
+** Directly creates the relevant Command object (for single word commands).
+** Passes on the rest of the string to one of the Parser submodules (for multi-word commands).
+
+_Placeholder for Fig. 5_
+
+The Parser has 4 submodules: add, delete, edit and list. They are shown in Figure 5 above. These submodules handle multi-word commands from the user. 
+
+The Parser submodules
+
+* Each receives the rest of the string (without the first word) from the main parser as an input parameter.
+* Determine what kind of object (Stock, StockType, etc) the user wants to work with.
+* Parse any other parameters that follow.
+* Create and return the relevant Command object.
+ 
+*Figure 6* below is a sequence diagram demonstrating how the entire parser module works. In this example, the user has entered the command “add stockType Resistor”.
+
+_Placeholder for Fig. 6_
+
+Figure 6: Sequence diagram for adding a stock. 
+
+*Design Consideration*
+
+We have chosen to implement the parser module this way to abstract out the different levels of processing user inputs. The main Parser class is only concerned with determining what the first word is, and creating command objects for single word inputs. If a multi-word inputs are given, the main Parser only has to determine if the first word is a valid command type. Thereafter, it does not parse the rest of the input itself, but instead calls the relevant submodule to process the rest of the input string.  
+
+
 include::../DeveloperGuide.adoc[tag=undoredo]
 
 include::../DeveloperGuide.adoc[tag=dataencryption]
