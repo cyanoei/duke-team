@@ -5,8 +5,6 @@
 
 == PROJECT: Eggventory
 
----
-
 == Overview
 
 Eggventory (Engineering Got General Inventory) is an inventory management system that is specially designed to be used by lab technicians in Engineering labs. It was created to facilitate the tracking of movement of inventory in an Engineering
