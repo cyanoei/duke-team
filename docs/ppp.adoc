@@ -14,13 +14,10 @@ laboratory in an easy-to-use interface. Eggventory interprets user commands thro
 
 == Summary of contributions
 
-* *Feature*: added *???*
-** What it does: 
-** Justification: 
-** Highlights: 
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
-
-* *Minor enhancement*: 
+* *Feature: Minimum required quantity*
+** What it does: Allows users to set a minimum required quantity of a stock. This the minimum amount of a particular stock that the inventory has to have on hand at any given time. After loans or lost items are recorded, Eggventory will warn users if the stock quantity has fallen below the minimum. Users can also request a list of stocks that are present in less than the minimum required quantity.
+** Justification: Eggventory inherently can notify users when a stock has completely run out, but it is not reasonable to wait until this point. Realistically, users would prefer to have some notice beforehand, to have time to order new stocks or track down overdue loans. This feature also allows the minimum value to be user-defined, depending the importance of the stock within the inventory.   
+** Highlights: This feature requires careful integration with the "edit minimum", "loan" and "lost" functions. There are thus three different scenarios (detailed in the Developer Guide below) where checks have to be performed. 
 
 * *Shared Code Contributions*
 ** Logic (Parser) module: Developed main Parser structure. Wrote Parser code for ParseAdd and ParseDelete. 
