@@ -37,7 +37,7 @@ https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggvent
 https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/items/UniqueStock.java[UniqueStock.java],
 https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/items/Item.java[Item.java])
 
-* *Code contributed*: https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei[Reposense] _Note: Contribution graph was affected by a rebase, but contributions are still properly attributed._
+* *Code contributed*: https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei[Reposense] _(Note: Contribution graph was affected by a rebase, but contributions are still properly attributed.)_
 
 * *Other contributions*:
 
