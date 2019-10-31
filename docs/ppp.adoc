@@ -10,7 +10,7 @@
 == Overview
 
 Eggventory (Engineering Got General Inventory) is an inventory management system that is specially designed to be used by lab technicians in Engineering labs. It was created to facilitate the tracking of movement of inventory in an Engineering
-laboratory in an easy-to-use interface. Its main feature is the ability to manage loans made to students, consisting of automatic checking for sufficient stock quantity, reminders for overdue loans, and a means of mass-recording loans to a large group. Eggventory can also be used to offer additional information specific to electronics, such as datasheets and links to similar components.
+laboratory in an easy-to-use interface. Eggventory interprets user commands through a CLI with predictive search, and displays the inventory components in a GUI. 
 
 == Summary of contributions
 
