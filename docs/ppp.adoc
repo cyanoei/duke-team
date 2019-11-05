@@ -53,6 +53,7 @@ https://github.com/AY1920S1-CS2113T-F09-3/main/pull/223[#223]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/251[#251]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/261[#261]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/269[#269]
+https://github.com/AY1920S1-CS2113T-F09-3/main/pull/345[#345]
 *** Bugs fixed for team code: 
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/210[#210]
 https://github.com/AY1920S1-CS2113T-F09-3/main/pull/236[#236]
