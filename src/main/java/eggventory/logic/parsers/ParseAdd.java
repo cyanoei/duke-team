@@ -46,18 +46,23 @@ public class ParseAdd {
      * @throws InsufficientInfoException if there are insufficient details provided.
      */
     private Command processAddStockType(String input) throws BadInputException {
-        String[] addInput = input.split(" +");
 
-        if (Parser.isReserved(addInput[0])) {
-            throw new BadInputException("'" + addInput[0] + "' is an invalid name as it is a keyword"
+        input = input.strip();  //In case of trailing spaces.
+
+        if (Parser.isReserved(input)) {
+            throw new BadInputException("'" + input + "' is an invalid name as it is a keyword"
                     + " for an existing command.");
         }
 
-        return new AddStockTypeCommand(CommandType.ADD, addInput[0]);
+        if (input.contains(" ")) {
+            throw new BadInputException("Sorry, the StockType name cannot contain spaces!");
+        }
+
+        return new AddStockTypeCommand(CommandType.ADD, input);
     }
 
     private Command processAddPerson(String input) throws BadInputException {
-        String[] addInput = input.split(" +");
+        String[] addInput = input.split(" +", 2); //Permits spaces in names.
 
         if (Parser.isReserved(addInput[0])) {
             throw new BadInputException("'" + addInput[0] + "' is an invalid name as it is a keyword"
@@ -69,6 +74,13 @@ public class ParseAdd {
 
     private Command processAddTemplate(String input) throws BadInputException {
         String[] addInput = input.split(" +");
+
+        //Checks if template name is reserved.
+        if (Parser.isReserved(addInput[0])) {
+            throw new BadInputException("'" + addInput[0] + "' is an invalid name as it is a keyword"
+                    + " for an existing command.");
+        }
+
         if (addInput.length % 2 == 0) { // A parameter is missing if there are odd number of arguments.
             throw new BadInputException("Template is missing a <StockCode> or <Quantity>");
         }
@@ -83,20 +95,19 @@ public class ParseAdd {
     }
 
     //@@author cyanoei
-    private Command processAddLoan(String input) throws BadInputException, InsufficientInfoException {
+
+    /**
+     * Processes the user command to add a loan.
+     * @param input string in the format matricNo, stockCode and quantity.
+     * @return a command to add a loan.
+     */
+    private Command processAddLoan(String input) {
         String[] addInput = input.split(" +");
-        if (Parser.isReserved(addInput[0])) {
-            throw new BadInputException("'" + addInput[0] + "' is an invalid name as it is a keyword"
-                    + " for an existing command.");
-        }
 
         if (TemplateList.templateExists(addInput[1])) {
             return new AddLoanByTemplateCommand(CommandType.ADD, addInput[0], addInput[1]);
         }
 
-        if (!Parser.isCommandComplete(input, 2)) {
-            throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add loan"));
-        }
         return new AddLoanCommand(CommandType.ADD, addInput[0], addInput[1], Integer.parseInt(addInput[2]));
     }
 
@@ -118,6 +129,7 @@ public class ParseAdd {
 
         switch (addInput[0]) {
         case "stock":
+            //Required: stock <stockType> <stockCode> <quantity> <description>
             if (!Parser.isCommandComplete(inputString, 4)) {
                 throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add stock"));
             }
@@ -125,6 +137,7 @@ public class ParseAdd {
             break;
 
         case "stocktype":
+            //Required: stocktype <stockType name>
             if (!Parser.isCommandComplete(inputString, 1)) {
                 throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add stocktype"));
             }
@@ -132,13 +145,15 @@ public class ParseAdd {
             break;
 
         case "loan":
-            if (!Parser.isCommandComplete(inputString, 2)) {
+            //Required: loan <matric> <stockCode> <quantity>
+            if (!Parser.isCommandComplete(inputString, 3)) {
                 throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add loan"));
             }
             addCommand = processAddLoan(addInput[1]);
             break;
 
         case "person":
+            //Required: person <matric> <name>
             if (!Parser.isCommandComplete(inputString, 2)) {
                 throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add person"));
             }
@@ -147,6 +162,7 @@ public class ParseAdd {
             break;
 
         case "template":
+            //Required: template <name> <stockCode> <quantity> (and other pairs if needed)
             if (!Parser.isCommandComplete(inputString, 3)) {
                 throw new InsufficientInfoException(CommandDictionary.getCommandUsage("add template"));
             }
