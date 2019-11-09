@@ -1,8 +1,8 @@
-##Project Portfolio - Eggventory
-####Oei Chiu Yan Rebecca
+## Project Portfolio - Eggventory
+#### Oei Chiu Yan Rebecca
 
 ---
-##About the Project
+## About the Project
 
 **Eggventory** is an inventory management system created by four other Computer Engineering students and me for our Year 2 Software Engineering module. During the first half of the module, we each created a simple task manager application. For the second half of the module, we were given 6 weeks to enhance one of the team members’ individual applications, or modify it into a different product. 
 
@@ -11,23 +11,23 @@ Our team chose to create Eggventory, an inventory management system specifically
 I was the team leader for this project, and bore the responsibility of coordinating the team’s progress and deliverables for each milestone. In addition, my role as a developer was to implement the minimum required quantity feature, which is documented below.
 
 ---
-##Summary of contributions
+## Summary of contributions
 
-###**Individual Feature: Minimum required quantity**
+### **Individual Feature: Minimum required quantity**
 **What it does**: Allows users to specify a minimum required quantity of a stock. This the minimum amount of the stock that the inventory intends to have on hand at any given time. Eggventory will warn users if the stock quantity has fallen below the minimum. Users can also generate a list detailing the amount of stocks they need to purchase to meet the respective minimum quantities. 
 
 **Justification**: Since inventories constantly need to make loans, users should receive ample warning before a stock is completely depleted. Realistically, users would prefer to have some notice beforehand, to have time to order new stocks or track down overdue loans. The feature allows the minimum value to be user-defined, depending the importance or popularity of the stock within the inventory.   
 
 **Highlights**: This feature was challenging to implement as any mistakes in processing integer quantities would result in major bugs (eg. negative stocks). Careful consideration was given to the way this feature would require information from both the Stock and LoanList classes. 
 
-###**Shared Feature: Loan System**
+### **Shared Feature: Loan System**
 **What it does**: Allows users to record loans of the inventory's stock to other people, mainly students, and checks if there are sufficient stocks to make each loan. 
 
 **Justification**: School inventories loan stock to students regularly, and benefit from a means of keeping track of all loans made. 
 
 **Highlights**: This feature was developed in collaboration with team member [Benjamin](https://github.com/Deculsion). Loans were implemented as an association between Person and Stock objects. 
 
-###**Shared Code Contributions**
+### **Shared Code Contributions**
 
 **Loan Feature**: Shared feature implemented with . (Code: 
 [Loan.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/Loan.java),
