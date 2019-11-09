@@ -1,6 +1,5 @@
 # Project Portfolio - Eggventory
 ### By: Oei Chiu Yan Rebecca
-
 ---
 ## About the Project
 
@@ -9,7 +8,6 @@
 Our team chose to create Eggventory, an inventory management system specifically designed to be used by lab technicians in NUS Engineering labs. In particular, Eggventory is made specifically for use in schools, and allows users to track loans of equipment to students. 
 
 I was the team leader for this project, and bore the responsibility of coordinating the team’s progress and deliverables for each milestone. In addition, my role as a developer was to implement the loan and minimum required quantity feature, which are documented below.
-
 ---
 ## Summary of contributions
 
