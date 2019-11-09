@@ -156,7 +156,7 @@ With this need in mind, Eggventory gives users the ability to set and check the 
 
 Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking stocks for minimum quantity, and listing stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
 
-   ![](images/dg/QMClassDgm.png =100x100)
+<img src="images/dg/QMClassDgm.png" alt="QMClassDiagram" width="200"/>
 
 _Figure ?: Class diagram showing QuantityManager’s associations_
 
