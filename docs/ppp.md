@@ -133,7 +133,7 @@ This shows you a complete list of Stocks below their minimum required quantities
 
 Format: `list minimum`
 
-   ![](images/list_min.png)
+   \[Minimum list image omitted, but can be viewed online [here](https://github.com/cyanoei/eggventory-team/blob/ppp_final_branch/docs/ppp.md#373-listing-stocks-that-are-low-in-quantity-list-minimum).\]
 
 #### 3.7.3 Generating Shopping List: `list shopping`
 
