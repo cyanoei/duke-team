@@ -1,5 +1,5 @@
-## Project Portfolio - Eggventory
-#### Oei Chiu Yan Rebecca
+# Project Portfolio - Eggventory
+### By: Oei Chiu Yan Rebecca
 
 ---
 ## About the Project
