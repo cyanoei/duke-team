@@ -132,7 +132,7 @@ This shows you a complete list of Stocks below their minimum required quantities
 
 Format: `list minimum`
 
-   \[Minimum list image omitted, but can be viewed online [here](https://github.com/cyanoei/eggventory-team/blob/ppp_final_branch/docs/ppp.md#373-listing-stocks-that-are-low-in-quantity-list-minimum).\]
+   _\[Minimum list image omitted, but can be viewed online [here](https://github.com/cyanoei/eggventory-team/blob/ppp_final_branch/docs/ppp.md#373-listing-stocks-that-are-low-in-quantity-list-minimum).\]_
 
 #### 3.7.3 Generating Shopping List: `list shopping`
 
@@ -193,7 +193,7 @@ _**Figure 6.5.2**: Sequence diagram showing the minimum quantity check_
 
 When any quantity-modifying Commands are made, the Quantity Manager is invoked by the Command to determine if the available quantity is now below minimum.  An additional message is printed to the CLI if the total available quantity is now lower than the minimum required quantity.
  
- \[Sections 6.5.2 List of Insufficient Stock and 6.5.3 Shopping List are omitted for brevity. They detail features that check stock quantity in order to display customised lists to the user.\]
+ _\[Sections 6.5.2 List of Insufficient Stock and 6.5.3 Shopping List are omitted for brevity. They detail features that check stock quantity in order to display customised lists to the user.\]_
  
 #### 6.5.4 Design Considerations 
 
