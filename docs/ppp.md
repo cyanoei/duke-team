@@ -144,12 +144,25 @@ Format: `list shopping`
    
 ## Contributions to Developer Guide
 
-This section shows my contributions made to the team’s Developer Guide. The full Developer Guide cannot be viewed online but can be downloaded [here](). I wrote sections 5.3.1 and 6.3, which describe the Parser Modules and LoanList implementation respectively. 
+This section shows my contributions made to the team’s Developer Guide. The full Developer Guide cannot be viewed online but can be downloaded [here](). I wrote sections 5.3.1, 6.3, and 6.5, which describe the Parser Modules, LoanList implementation, and Quantity feature respectively. 
 
+Below is an extract from the introduction of section 6.3 about Loans. 
+
+---
+### 6.3 Loans 
+The loans feature is an additional feature that marks and keeps track of stock that is being loaned out to students. Each Loan is made from one Stock to one Person. The figure below details the overall architecture of the Loans feature, including how the Person class is related to Loans. 
+
+<img src="images/dg/loanClassDgm.png" alt="Loans Class Diagram" width="1000"/>
+
+_**Figure 6.3.1**: Class Diagram showing the relation between Loans and other classes_
+
+---
+Below is an extract from section 6.5 about the Minimum Required Quantity feature. 
+
+---
 ### 6.5 Minimum Required Quantity Feature
-In a typical inventory, Stocks are regularly loaned out or even lost. Thus, users may want to decide upon a minimum quantity for each stock. This refers to the minimum amount of the stock that they intend to have on hand at any given time. 
 
-With this need in mind, Eggventory gives users the ability to set and check the minimum required quantity of a Stock. This allows users to receive warnings when any changes cause the quantity of their available stock to become lower than the minimum quantity they have defined. 
+Eggventory gives users the ability to set the minimum required quantity of a Stock. The system will then display warnings when any changes cause the quantity of available stock to become lower than the minimum quantity the user has defined. 
   
 #### 6.5.1 Quantity Manager
 
@@ -157,7 +170,7 @@ Quantity-related features in Eggventory are implemented with the QuantityManager
 
 <img src="images/dg/QMClassDgm.png" alt="QM Class Diagram" width="450"/>
 
-_Figure ?: Class diagram showing QuantityManager’s associations_
+_**Figure 6.5.1**: Class diagram showing QuantityManager’s associations_
 
 The QuantityManager is called by Commands to compare the available quantity (total quantity minus loans) with the minimum quantity each time one of these variables changes. The Command receives the result of this comparison and calls the UI to display extra warnings to the user. 
 
@@ -173,21 +186,15 @@ When the user adds loans of a stock.
 
 The figure below details the process of this checking. XCommand refers to any command that may result in any of the above scenarios. 
 
-<img src="images/dg/QMSeqDgm.png" alt="QM Sequency Diagram" width="800"/>
+<img src="images/dg/QMSeqDgm.png" alt="QM Sequence Diagram" width="800"/>
 
-_Figure ?: Sequence diagram showing the minimum quantity check_
+_**Figure 6.5.2**: Sequence diagram showing the minimum quantity check_
 
 
 When any quantity-modifying Commands are made, the Quantity Manager is invoked by the Command to determine if the available quantity is now below minimum.  An additional message is printed to the CLI if the total available quantity is now lower than the minimum required quantity.
  
-#### 6.5.2 List of Insufficient Stock
+ \[Sections 6.5.2 List of Insufficient Stock and 6.5.3 Shopping List are omitted for brevity. They detail features that check stock quantity in order to display customised lists to the user.\]
  
-To enable users to quickly see which stocks need to be running low, the QuantityManager iterates through the StockList and constructs an ArrayList of a list of stocks which do not meet their minimum required quantity. This list can then be displayed to the user with a single list command, on both the CLI and GUI. 
-
-#### 6.5.3 Shopping List
-
-The QuantityManager creates the same list as described in 6.5.2. Then, an additional method calculates the required stock to purchase to meet the minimum required quantity. A new list is then created, listing the description of Stocks as well as the amount recommended for the user to purchase. 
-
 #### 6.5.4 Design Considerations 
 
 Determining how to implement the minimum quantity feature was challenging. Some of the options considered are discussed below. 
@@ -201,7 +208,7 @@ Determining how to implement the minimum quantity feature was challenging. Some 
 - Cons: Not open to future expansion - quantity may also be affected by lost Stock in the future
 
 **Alternative 3 (Current choice)**: Implement an additional class to manage minimum quantity. 
-- Pros: Decrease coupling - Stock and LoanList need not be aware of each other. Allows closer interaction with UI through the Command classes. Open to expansion. 
+- Pros: Decrease coupling as Stock and LoanList need not be aware of each other. Allows closer interaction with UI through the Command classes. Open to expansion. 
 - Cons: Risk creating a God class if quantity management features are expanded in the future.
 
 We prioritised the ability for the quantity feature to pass warning messages to the UI to be printed, in this case done through the Commands. This implementation also serves to increase separation of concerns, as neither Stock or LoanList need to be aware of whether quantity is sufficient. 
