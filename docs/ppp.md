@@ -156,7 +156,7 @@ With this need in mind, Eggventory gives users the ability to set and check the 
 
 Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking stocks for minimum quantity, and listing stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
 
-<img src="images/dg/QMClassDgm.png" alt="QMClassDiagram" width="450"/>
+<img src="images/dg/QMClassDgm.png" alt="QM Class Diagram" width="450"/>
 
 _Figure ?: Class diagram showing QuantityManager’s associations_
 
@@ -173,6 +173,8 @@ When the user edits the minimum required quantity of a stock.
 When the user adds loans of a stock. 
 
 The figure below details the process of this checking. XCommand refers to any command that may result in any of the above scenarios. 
+
+<img src="images/dg/QMSeqDgm.png" alt="QM Sequency Diagram" width="800"/>
 
 _Figure ?: Sequence diagram showing the minimum quantity check_
 
