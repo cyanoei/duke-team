@@ -13,6 +13,8 @@ I was the team leader for this project, and bore the responsibility of coordinat
 ---
 ## Summary of contributions
 
+This section summarises contributions I made to Eggventory. My individual feature is the of Minimum Required Quantity feature. This relied upon the development of the shared Loans feature, which I made significant contributions to. 
+
 ### **Individual Feature: Minimum required quantity**
 **What it does**: Allows users to specify a minimum required quantity of a stock. This the minimum amount of the stock that the inventory intends to have on hand at any given time. Eggventory will warn users if the stock quantity has fallen below the minimum. Users can also generate a list detailing the amount of stocks they need to purchase to meet the respective minimum quantities. 
 
@@ -25,22 +27,21 @@ I was the team leader for this project, and bore the responsibility of coordinat
 
 **Justification**: School inventories loan stock to students regularly, and benefit from a means of keeping track of all loans made. 
 
-**Highlights**: This feature was developed in collaboration with team member [Benjamin](https://github.com/Deculsion). Loans were implemented as an association between Person and Stock objects. 
+**Highlights**: Loans were implemented as an association between Person and Stock objects. This feature was developed in collaboration with team member [Benjamin](https://github.com/Deculsion).
 
-### **Shared Code Contributions**
+### **Code Contributions**
 
 **Loan Feature**: Primarily wrote the base code and worked on input validation linking Loans to Persons and Stocks. (Code: 
 [Loan.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/Loan.java),
 [LoanList.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/LoanList.java),
-[AddLoanCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/add/AddLoanCommand.java),
-[DeleteLoanCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/delete/DeleteLoanCommand.java))
+[AddLoanCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/add/AddLoanCommand.java).)
 
 **Logic (Parser) Module**: Developed main Parser structure. Wrote logic for ParseAdd and ParseDelete. (Code: 
 [Parser.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/Parser.java), 
 [ParseAdd.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseAdd.java),
-[ParseDelete.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseDelete.java))
+[ParseDelete.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/parsers/ParseDelete.java).)
 
-**All code contributions**: [Reposense](https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei) _(Note: Contribution graph was affected by a rebase, but contributions are still properly attributed.)_
+**All code contributions**: [Reposense link.](https://nuscs2113-ay1920s1.github.io/dashboard/#search=cyanoei) _(Note: Contribution graph was affected by a rebase, but contributions are still properly attributed.)_
 
 ### **Other Contributions**
 
