@@ -56,9 +56,7 @@ after Mock PE. (eg.
 
 #### **Documentation**
 - Was responsible for final editing and submission of all drafts of User Guide and Developer guide. 
-- Wrote User Guide sections [3.4](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#34-managing-your-list-of-people),
-[3.5](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#35-managing-your-list-of-loans), and
-[3.7](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#37-minimum-required-quantity) (shown below). 
+- Wrote User Guide sections 3.4, 3.5, and 3.7 (shown below).
 - Wrote Developer Guide sections 5.3.1, 6.3, 6.5 (shown below). _(Note: Unable to link DG contributions as it is not on Github.)_
 
 
@@ -80,6 +78,17 @@ after Mock PE. (eg.
 - Meaningful bugs found in other teams' code: 
 [[example1]](https://github.com/AY1920S1-CS2113T-F11-3/main/issues/146),
 [[example2]](https://github.com/AY1920S1-CS2113T-F11-3/main/issues/147).
+
+---
+## Contributions to User Guide
+
+This section shows my contributions made to the team’s User Guide. (The full User Guide can be found [here](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md).)
+I wrote sections
+[3.4](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#34-managing-your-list-of-people) and
+[3.5](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#35-managing-your-list-of-loans)
+of the User Guide, which discuss Person entries and the use of the Loan feature respectively. 
+
+Below is an extract of section [3.7](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#37-minimum-required-quantity), which explains the minimum required quantity feature. Please note that `markups` are used to indicate user commands. 
 
 ---
 ### 3.7 Minimum Required Quantity
@@ -132,3 +141,63 @@ This automatically generates a list of Stock and the quantity of each that you s
 Format: `list shopping`
 
    ![](images/shopping_list.png)
+   
+## Contributions to Developer Guide
+
+This section shows my contributions made to the team’s Developer Guide. The full Developer Guide cannot be viewed online but can be downloaded [here](). I wrote sections 5.3.1 and 6.3, which describe the Parser Modules and LoanList implementation respectively. 
+
+### 6.5 Minimum Required Quantity Feature
+In a typical inventory, Stocks are regularly loaned out or even lost. Thus, users may want to decide upon a minimum quantity for each stock. This refers to the minimum amount of the stock that they intend to have on hand at any given time. 
+
+With this need in mind, Eggventory gives users the ability to set and check the minimum required quantity of a Stock. This allows users to receive warnings when any changes cause the quantity of their available stock to become lower than the minimum quantity they have defined. 
+  
+#### 6.5.1 Quantity Manager
+
+Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking stocks for minimum quantity, and listing stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
+
+_Figure ?: Class diagram showing QuantityManager’s associations_
+
+The QuantityManager is called by Commands to compare the available quantity (total quantity minus loans) with the minimum quantity each time one of these variables changes. The Command receives the result of this comparison and calls the UI to display extra warnings to the user. 
+
+#### 6.5.2 Minimum Required Quantity
+
+The minimum required quantity is implemented as the minimum attribute inside each stock class. This is an optional parameter, which users can choose to specify when adding new stocks. Otherwise, by default, the value of minimum is set to set to 0. The attribute can thereafter be updated using the edit command.
+
+Checking of the minimum required quantity is required in four scenarios. 
+When the user adds a new stock, specifying the minimum quantity. 
+When the user edits the total quantity of a stock.
+When the user edits the minimum required quantity of a stock. 
+When the user adds loans of a stock. 
+
+The figure below details the process of this checking. XCommand refers to any command that may result in any of the above scenarios. 
+
+_Figure ?: Sequence diagram showing the minimum quantity check_
+
+
+When any quantity-modifying Commands are made, the Quantity Manager is invoked by the Command to determine if the available quantity is now below minimum.  An additional message is printed to the CLI if the total available quantity is now lower than the minimum required quantity.
+ 
+#### 6.5.2 List of Insufficient Stock
+ 
+To enable users to quickly see which stocks need to be running low, the QuantityManager iterates through the StockList and constructs an ArrayList of a list of stocks which do not meet their minimum required quantity. This list can then be displayed to the user with a single list command, on both the CLI and GUI. 
+
+#### 6.5.3 Shopping List
+
+The QuantityManager creates the same list as described in 6.5.2. Then, an additional method calculates the required stock to purchase to meet the minimum required quantity. A new list is then created, listing the description of Stocks as well as the amount recommended for the user to purchase. 
+
+#### 6.5.4 Design Considerations 
+
+Determining how to implement the minimum quantity feature was challenging. Some of the options considered are discussed below. 
+
+**Alternative 1**: Implement quantity management within the Stock class.  
+- Pros: Easier to develop as most required variables are in the Stock class.
+- Cons: Challenging to send print output to UI class (Stock is not aware of UI directly) 
+
+**Alternative 2**: Implement quantity management within the LoanList class.
+- Pros: Quantity management is primarily related to quantity decreases from loans
+- Cons: Not open to future expansion - quantity may also be affected by lost Stock in the future
+
+**Alternative 3 (Current choice)**: Implement an additional class to manage minimum quantity. 
+- Pros: Decrease coupling - Stock and LoanList need not be aware of each other. Allows closer interaction with UI through the Command classes. Open to expansion. 
+- Cons: Risk creating a God class if quantity management features are expanded in the future.
+
+We prioritised the ability for the quantity feature to pass warning messages to the UI to be printed, in this case done through the Commands. This implementation also serves to increase separation of concerns, as neither Stock or LoanList need to be aware of whether quantity is sufficient. 
