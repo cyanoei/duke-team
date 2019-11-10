@@ -67,7 +67,7 @@ Command Format
   
 - Parameters in {Braces} can be repeated multiple times in the same command, separated by a space. E.g. `add template <TemplateName>  {<Stock Code> <Quantity>}` , more \<Stock Code\> \<Quantity\> pairs can be added after the first pair as such: `loan add A0191234A R500 20 R250 10 R100 5`  
   
--   [coming in v2.0] Some commands have optional parameters available. Optional parameters are added to the end of the corresponding command, after all mandatory parameters. E.g. `add stock R500 50 “500-ohm Resistors” -st Resistors` , will create a new stock, and placed under the “Resistors” Stock Type with the “-st” tag.  
+-   **[coming in v2.0]** Some commands have optional parameters available. Optional parameters are added to the end of the corresponding command, after all mandatory parameters. E.g. `add stock R500 50 “500-ohm Resistors” -st Resistors` , will create a new stock, and placed under the “Resistors” Stock Type with the “-st” tag.  
   
 ### 3.1 Viewing help: ``help``  
   
@@ -156,26 +156,23 @@ This removes a stock from the inventory, including any references to loaned out 
   
 #### 3.3.3 Editing Stock: `edit  stock`  
     
-This directly modifies the value of a property stock. You may modify as many properties as you wish in one command.
+This directly modifies the value of a property stock.
   
 Keywords to modify each property:  
-      
 - `description`  
-            
 - `quantity`  
-      
 - `minimum`  
 
 Note: The ability to edit StockCode and StockType will be added in v2.0. For now, please delete and re-add a stock if you need to change those properties. 
-      
     
 Format: `edit stock <StockCode> <Property> <New Value>`  
   
-eg. `edit stock R500 quantity 1000` : Changes the quantity of the stock R500 to 1000.
+eg. `edit stock R500 quantity 1000`: Changes the quantity of the stock R500 to 1000.
   
 #### 3.3.4 Listing Stock: `list stock`  
     
 This lists out all Stocks that are present in the inventory.  
+
 Format: `list stock`
   
 #### 3.3.5 Listing Stock of a particular StockType: `list stocktype <StockType>`  
@@ -201,8 +198,7 @@ eg. `add person A0123456 Akshay`
 Note: By nature, the matric number of each Person should be unique, meaning no two individuals are allowed to share the same matric number.  
   
   
-**[coming in v2.0]**  
-Optional Parameters:  
+Optional Parameters: **[coming in v2.0]**  
 
 |Format|Purpose|  
 |---|---|  
@@ -220,7 +216,7 @@ Format: `delete person <Matric. No>`
   
 eg. `delete person A0123456`  
   
-#### 3.4.3  Editing a Person’s details: `edit person`  
+#### 3.4.3  Editing a Person’s details: `edit person` **[coming in v2.0]** 
     
 This directly modifies the value of a property of a person. You may modify as many properties as you wish in one command.  
   
@@ -229,6 +225,7 @@ Properties:
 - name 
   
 Format: `edit person <Matric No.> <Property> <New Value>`
+
 e.g. `edit person A0123456 name Alex`
   
 #### 3.4.4 Listing all People: `list person`  
@@ -256,12 +253,12 @@ Format: `delete loan <MatricNo> <StockCode>`
 
 e.g. `delete loan A0123456 R500`
   
-#### 3.5.3 Returning specific Loans: `loan return` [coming in v2.0]  
+#### 3.5.3 Returning specific Loans: `loan return` **[coming in v2.0]**  
     
 This marks specific Loans of a Person as returned.  
   Format: `loan return <Matric No.> {<Stock Code> <Quantity>}`  
   
-#### 3.5.4 Returning all Loans: `loan returnall` [coming in v2.0] 
+#### 3.5.4 Returning all Loans: `loan returnall` **[coming in v2.0]** 
     
 This marks all Loans of a Person as returned.  
 
@@ -405,7 +402,7 @@ Undoing a command can be reversed using the redo command.
 Format: `redo`  
   
 ---  
-### 3.11 Setting autosave options: [coming in v2.0]
+### 3.11 Setting autosave options: **[coming in v2.0]**
   Eggventory automatically saves the current inventory to the disk every time data is added, removed, or edited. You can disable this feature with this command. Eggventory will then save only when the program exits.  
   
 Format: `autosave on` OR `autosave off`  
@@ -479,7 +476,7 @@ loan returnall | `loan returnall <MatricNo>`
 find description | `find description <Query>`
 
  
-### Lost Commands [coming in v2.0]
+### Lost Commands **[coming in v2.0]**
 |Command| Syntax  
 |---|---|  
 lost | `lost <Stock Code> <Quantity>`
