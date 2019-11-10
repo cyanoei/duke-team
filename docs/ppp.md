@@ -1,5 +1,7 @@
 # Project Portfolio - Eggventory
+
 ### By: Oei Chiu Yan Rebecca
+
 ---
 ## About the Project
 
@@ -12,7 +14,7 @@ I was the team leader for this project, and bore the responsibility of coordinat
 ---
 ## Summary of contributions
 
-This section summarises contributions I made to Eggventory. My individual feature is the of Minimum Required Quantity feature. This relied upon the development of the shared Loans feature, which I made significant contributions to. 
+This section summarises contributions I made to Eggventory. My individual enhancement is the Minimum Required Quantity feature. This relied upon the development of the shared Loans feature, which I made significant contributions to. 
 
 ### **Individual Feature: Minimum required quantity**
 **What it does**: Allows users to specify a minimum required quantity of a stock. This the minimum amount of the stock that the inventory intends to have on hand at any given time. Eggventory will warn users if the stock quantity has fallen below the minimum. Users can also generate a list detailing the amount of stocks they need to purchase to meet the respective minimum quantities. 
@@ -57,7 +59,7 @@ after Mock PE. (eg.
 #### **Documentation**
 - Was responsible for final editing and submission of all drafts of User Guide and Developer guide. 
 - Wrote User Guide sections 3.4, 3.5, and 3.7 (shown below).
-- Wrote Developer Guide sections 5.3.1, 6.3, 6.5 (shown below). _(Note: Unable to link DG contributions as it is not on Github.)_
+- Wrote Developer Guide sections 5.3.1, 6.3, 6.5 (shown below).
 
 
 #### **Community**
@@ -88,15 +90,13 @@ I wrote sections
 [3.5](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#35-managing-your-list-of-loans)
 of the User Guide, which discuss Person entries and the use of the Loan feature respectively. 
 
-Below is an extract of section [3.7](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#37-minimum-required-quantity), which explains the minimum required quantity feature. Please note that `markups` are used to indicate user commands. 
+Below is an extract of section [3.7](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/docs/CS2113T-F09-3-Eggventory-UG.md#37-minimum-required-quantity-1), which explains the minimum required quantity feature. Please note that `markups` are used to indicate user commands. 
 
 ---
 ### 3.7 Minimum Required Quantity
 
 The _minimum required quantity_ is the minimum amount of the stock that your lab intends to have on hand at all times. Loans can still be made until the stock fully runs out, but additional
-  warnings will be displayed to remind you that stock is running low. 
-  
-In context, your lab may typically start restocking batteries when there are less than 30 batteries left. Thus, your minimum
+  warnings will be displayed to remind you that stock is running low. In context, your lab may typically start restocking batteries when there are less than 30 batteries left. Thus, your minimum
    required quantity should be set to 30. 
 
 #### 3.7.1 Setting Minimum Required Quantity
@@ -150,6 +150,9 @@ Below is an extract from the introduction of section 6.3 about Loans.
 
 ---
 ### 6.3 Loans 
+
+(API: LoanList.java, Loan.java, PersonList.java, Person.java, AddLoanCommand.java, AddPersonCommand.java)
+
 The loans feature is an additional feature that marks and keeps track of stock that is being loaned out to students. Each Loan is made from one Stock to one Person. The figure below details the overall architecture of the Loans feature, including how the Person class is related to Loans. 
 
 <img src="images/dg/loanClassDgm.png" alt="Loans Class Diagram" width="1000"/>
@@ -165,6 +168,10 @@ Below is an extract from section 6.5 about the Minimum Required Quantity feature
 Eggventory gives users the ability to set the minimum required quantity of a Stock. The system will then display warnings when any changes cause the quantity of available stock to become lower than the minimum quantity the user has defined. 
   
 #### 6.5.1 Quantity Manager
+
+(API: [QuantityManager.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/QuantityManager.java),
+[ListShoppingCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/list/ListMinimumCommand.java),
+[ListMinimum.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/list/ListShoppingCommand.java))
 
 Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking stocks for minimum quantity, and listing stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
 
