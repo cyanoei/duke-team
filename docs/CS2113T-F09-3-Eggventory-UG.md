@@ -191,26 +191,26 @@ People have to be added to the system before they can take loans from the invent
   
 This adds a new person to keep track that will loan stock.  
 
-Format: `add person <Matric No.> <Name>`  
+Format: `add person <MatricNo> <Name>`  
   
-eg. `add person A0123456 Akshay`  
+eg. `add person A0123456 John Doe`  
 
-Note: By nature, the matric number of each Person should be unique, meaning no two individuals are allowed to share the same matric number.  
+Note: By nature, the matric number of each person should be unique, meaning no two individuals are allowed to share the same matric number.  
   
   
 Optional Parameters: **[coming in v2.0]**  
 
 |Format|Purpose|  
 |---|---|  
-|`-n <Name>`|Sets the name of the person being added|
 |`-c <Course>`|Sets the course of the person being added|
+|`-m <Module>`|Sets the module that the person is taking. Multiple modules may be added.
 
-Format: `add person <Matric. No> {<flag> <optional parameter>}`  
+Format: `add person <MatricNo> {<flag> <optional parameter>}`  
   
-eg. `add person A0187654 -n Raghav -c CEG`  
+eg. `add person A0187654 Raghav -c CEG -m CG2271 =m CS2113T`  
   
 #### 3.4.2 Deleting a Person:` delete person`  
-  This removes a person from being tracked. All outstanding loans are automatically returned.  
+  This removes a person from being tracked. All their outstanding loans remain in the system and have to be deleted separately.  
   
 Format: `delete person <Matric. No>`  
   
@@ -218,13 +218,13 @@ eg. `delete person A0123456`
   
 #### 3.4.3  Editing a Person’s details: `edit person` **[coming in v2.0]** 
     
-This directly modifies the value of a property of a person. You may modify as many properties as you wish in one command.  
+This directly modifies the value of a property of a person.  
   
 Properties:  
 - matric 
 - name 
   
-Format: `edit person <Matric No.> <Property> <New Value>`
+Format: `edit person <MatricNo> <Property> <New Value>`
 
 e.g. `edit person A0123456 name Alex`
   
@@ -239,15 +239,15 @@ Format: `list person`
     
 #### 3.5.1 Adding a Loan: `add loan`
     
-This adds a new Loan and assigns it to a Person.
+This adds a new loan of a particular stock to a particular person.
   
 Format: `add loan <Matric No.> <Stock Code> <Quantity>`  
   
-eg. `add loan A0123456 R500 1000 X123 80`  
+eg. `add loan A0123456 R500 1000`  
 
 #### 3.5.2 Deleting a Loan: `delete loan`
-This deletes an existing Loan assigned to a Person. If there are multiple loans of the same StockCode to the same
- Person, the first instance of such a Loan will be deleted.
+This deletes an existing loan assigned to a person. If there are multiple loans of the same stock to that
+ person, the first instance of such a loan will be deleted.
 
 Format: `delete loan <MatricNo> <StockCode>`
 
@@ -255,7 +255,7 @@ e.g. `delete loan A0123456 R500`
   
 #### 3.5.3 Returning specific Loans: `loan return` **[coming in v2.0]**  
     
-This marks specific Loans of a Person as returned.  
+This marks specific Loans of a Person as returned. The loan remains archived in the system, but the stock is free to be loaned out by someone else. 
   Format: `loan return <Matric No.> {<Stock Code> <Quantity>}`  
   
 #### 3.5.4 Returning all Loans: `loan returnall` **[coming in v2.0]** 
@@ -264,11 +264,17 @@ This marks all Loans of a Person as returned.
 
 Format: `loan returnall <Matric No.>`  
   
-#### 3.5.5 Listing all Persons and their Loans: `list  loan`
+#### 3.5.5 Listing all Loans: `list  loan`
     
-This lists out all loans currently recorded, listed by the Person who made the loan.  
+This lists out all loans currently recorded.   
   
 Format: `list loan`  
+
+#### 3.5.6 Listing all Loans to one Person: `list  loan <MatricNo>`
+    
+This lists out all loans currently recorded.   
+  
+Format: `list loan <MatricNo>`
   
 ---  
 ### 3.6 Loaning using Templates
@@ -323,7 +329,7 @@ In context, your lab may typically start restocking batteries when there are les
    required quantity should be set to 30. 
 
 #### 3.7.1 Setting Minimum Required Quantity
-There are two ways to set a Stock's minimum required quantity. 
+There are two ways to set a stock's minimum required quantity. 
 
 The first is to specify it when adding the stock, using the optional parameter `-m <minimum quantity>`. An additional confirmation message will acknowledge your use of the optional parameter. 
 
@@ -333,7 +339,7 @@ eg. `add stock Resistor R1k 1000 1Kohm resistor -m 500`
 
    ![](images/add_mrq.png)
 
-If you did not assign a minimum required quantity to the Stock when it was added, you can edit it at any time using the `edit` command. 
+If you did not assign a minimum required quantity to the stock when it was added, you can edit it at any time using the `edit` command. 
   
 Format: `edit stock <StockCode> <Property> <New Value>`  
   
@@ -341,25 +347,25 @@ eg. `edit stock R500 minimum 100`
   
 #### 3.7.2 Receiving warnings about Quantity
 
-Once you have set a _minimum required quantity_, checks are performed to compare the _available quantity_ (total quantity without loaned or lost stock) and _minimum required quantity_ at every instance where any values are updated. If your latest action, such as adding a Loan, causes the available quantity to fall below minimum, a warning will be printed as shown below. 
+Once you have set a _minimum required quantity_, checks are performed to compare the _available quantity_ (total quantity without loaned or lost stock) and _minimum required quantity_ at every instance where any values are updated. If your latest action, such as adding a loan, causes the available quantity to fall below minimum, a warning will be printed as shown below. 
 
    ![](images/add_loan_mrq.png)
 
-Realistically, you may not have sufficient quantity of a Stock at the moment you add it into the system. Thus, it is normal to receive minimum quantity warnings when adding a stock that currently has less than the minimum quantity, as shown below.
+Realistically, you may not have sufficient quantity of a stock at the moment you add it into the system. Thus, it is normal to receive minimum quantity warnings when adding a stock that currently has less than the minimum quantity, as shown below.
 
    ![](images/add_below_mrq.png)
   
 #### 3.7.3 Listing Stocks that are low in quantity: `list minimum`
 
-This shows you a complete list of Stocks below their minimum required quantities. This list allows you quickly determine which Stocks are running out, and understand how much of this is due to excessive loaning or loss [coming in v2.0] of items. 
+This shows you a complete list of stocks below their minimum required quantities. This list allows you quickly determine which stocks are running out, and understand how much of this is due to excessive loaning or loss [coming in v2.0] of items. 
 
 Format: `list minimum`
 
    ![](images/list_min.png)
 
-#### 3.7.3 Generating Shopping List: `list shopping`
+#### 3.7.4 Generating Shopping List: `list shopping`
 
-This automatically generates a list of Stock and the quantity of each that you should consinder buying in order to attain the minimum required quantities. 
+This automatically generates a list of Stock and the quantity of each that you should consider buying in order to attain the minimum required quantities. 
 
 Format: `list shopping`
 
