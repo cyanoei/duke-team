@@ -13,7 +13,8 @@ import eggventory.model.PersonList;
 import eggventory.model.StockList;
 import eggventory.model.TemplateList;
 
-//@@author patwaririshab
+//@@author patwaririshab-unused
+
 public class StorageLoadStub {
 
     /**

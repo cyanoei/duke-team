@@ -5,6 +5,10 @@ import eggventory.commons.exceptions.BadInputException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+//@@author yanbosopro-unused
+
+//Unused because time related features have been pushed back to v2.0.
+
 /**
  * Stores date and time information by field - day, month, year, hour, minute.
  * Allows printing of a fancy formatted date.
@@ -53,15 +57,6 @@ public class DateTime {
     public Calendar getAt() {
         return calendar;
     }
-
-    //    /**
-    //     * Sets the calendar date.
-    //     * @param date to be set.
-    //     */
-    //    public void setDate(Date date) {
-    //        at = (date);
-    //    }
-
 
     /**
      * Returns string of the stored date in the default Date.java format.
