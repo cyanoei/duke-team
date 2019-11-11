@@ -13,8 +13,6 @@ import eggventory.logic.commands.UndoCommand;
 import java.util.Arrays;
 import java.util.HashSet;
 
-;
-
 //@@author cyanoei
 /**
  * Interprets command strings by the user, and converts them to command objects that can be executed.
@@ -73,8 +71,9 @@ public class Parser {
         String[] commandArr = command.split(" ");
         return commandArr.length - 1 >= reqArguments;
     }
-    //@@author cyanoei
+    //@@author
 
+    //@@author cyanoei
     /**
      * Checks if a string input is an integer.
      * @param testInteger the input to test.
