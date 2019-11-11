@@ -100,7 +100,8 @@ The _minimum required quantity_ is the minimum amount of the stock that your lab
    required quantity should be set to 30. 
 
 #### 3.7.1 Setting Minimum Required Quantity
-There are two ways to set a Stock's minimum required quantity. 
+
+There are two ways to set a stock's minimum required quantity. 
 
 The first is to specify it when adding the stock, using the optional parameter `-m <minimum quantity>`. An additional confirmation message will acknowledge your use of the optional parameter. 
 
@@ -110,7 +111,7 @@ eg. `add stock Resistor R1k 1000 1Kohm resistor -m 500`
 
    ![](images/add_mrq.png)
 
-If you did not assign a minimum required quantity to the Stock when it was added, you can edit it at any time using the `edit` command. 
+If you did not assign a minimum required quantity to the stock when it was added, you can edit it at any time using the `edit` command. 
   
 Format: `edit stock <StockCode> <Property> <New Value>`  
   
@@ -122,13 +123,13 @@ Once you have set a _minimum required quantity_, checks are performed to compare
 
    ![](images/add_loan_mrq.png)
 
-Realistically, you may not have sufficient quantity of a Stock at the moment you add it into the system. Thus, it is normal to receive minimum quantity warnings when adding a stock that currently has less than the minimum quantity, as shown below.
+Realistically, you may not have sufficient quantity of a stock at the moment you add it into the system. Thus, it is normal to receive minimum quantity warnings when adding a stock that currently has less than the minimum quantity, as shown below.
 
    ![](images/add_below_mrq.png)
   
 #### 3.7.3 Listing Stocks that are low in quantity: `list minimum`
 
-This shows you a complete list of Stocks below their minimum required quantities. This list allows you quickly determine which Stocks are running out, and understand how much of this is due to excessive loaning or loss [coming in v2.0] of items. 
+This shows you a complete list of stocks below their minimum required quantities. This list allows you quickly determine which stocks are running out, and understand how much of this is due to excessive loaning or loss [coming in v2.0] of items. 
 
 Format: `list minimum`
 
@@ -136,7 +137,7 @@ Format: `list minimum`
 
 #### 3.7.3 Generating Shopping List: `list shopping`
 
-This automatically generates a list of Stock and the quantity of each that you should consinder buying in order to attain the minimum required quantities. 
+This automatically generates a list of your stock and the quantity of each that you should consider buying in order to attain the minimum required quantities. 
 
 Format: `list shopping`
 
@@ -153,7 +154,7 @@ Below is an extract from the introduction of section 6.3 about Loans.
 
 (API: LoanList.java, Loan.java, PersonList.java, Person.java, AddLoanCommand.java, AddPersonCommand.java)
 
-The loans feature is an additional feature that marks and keeps track of stock that is being loaned out to students. Each Loan is made from one Stock to one Person. The figure below details the overall architecture of the Loans feature, including how the Person class is related to Loans. 
+The loans feature is an additional feature that marks and keeps track of Stock that is being loaned out to students. Each Loan is made from one Stock to one Person. The figure below details the overall architecture of the Loans feature, including how the Person class is related to Loans. 
 
 <img src="images/dg/loanClassDgm.png" alt="Loans Class Diagram" width="1000"/>
 
@@ -165,7 +166,7 @@ Below is an extract from section 6.5 about the Minimum Required Quantity feature
 ---
 ### 6.5 Minimum Required Quantity Feature
 
-Eggventory gives users the ability to set the minimum required quantity of a Stock. The system will then display warnings when any changes cause the quantity of available stock to become lower than the minimum quantity the user has defined. 
+Eggventory gives users the ability to set the minimum required quantity of a Stock. The system will then display warnings when any changes cause the quantity of available Stock to become lower than the minimum quantity the user has defined. 
   
 #### 6.5.1 Quantity Manager
 
@@ -173,7 +174,7 @@ Eggventory gives users the ability to set the minimum required quantity of a Sto
 [ListShoppingCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/list/ListMinimumCommand.java),
 [ListMinimum.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/list/ListShoppingCommand.java))
 
-Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking stocks for minimum quantity, and listing stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
+Quantity-related features in Eggventory are implemented with the QuantityManager class, which contains static methods for checking Stocks for minimum quantity, and listing Stocks if requested by the user. The Figure below details how QuantityManager interacts with the other classes in Eggventory. 
 
 <img src="images/dg/QMClassDgm.png" alt="QM Class Diagram" width="450"/>
 
@@ -183,13 +184,13 @@ The QuantityManager is called by Commands to compare the available quantity (tot
 
 #### 6.5.2 Minimum Required Quantity
 
-The minimum required quantity is implemented as the minimum attribute inside each stock class. This is an optional parameter, which users can choose to specify when adding new stocks. Otherwise, by default, the value of minimum is set to set to 0. The attribute can thereafter be updated using the edit command.
+The minimum required quantity is implemented as the minimum attribute inside each Stock class. This is an optional parameter, which users can choose to specify when adding new Stocks. Otherwise, by default, the value of minimum is set to set to 0. The attribute can thereafter be updated using the edit command.
 
 Checking of the minimum required quantity is required in four scenarios. 
-When the user adds a new stock, specifying the minimum quantity. 
-When the user edits the total quantity of a stock.
-When the user edits the minimum required quantity of a stock. 
-When the user adds loans of a stock. 
+When the user adds a new Stock, specifying the minimum quantity. 
+When the user edits the total quantity of a Stock.
+When the user edits the minimum required quantity of a Stock. 
+When the user adds loans of a Stock. 
 
 The figure below details the process of this checking. XCommand refers to any command that may result in any of the above scenarios. 
 
@@ -197,10 +198,9 @@ The figure below details the process of this checking. XCommand refers to any co
 
 _**Figure 6.5.2**: Sequence diagram showing the minimum quantity check_
 
-
 When any quantity-modifying Commands are made, the Quantity Manager is invoked by the Command to determine if the available quantity is now below minimum.  An additional message is printed to the CLI if the total available quantity is now lower than the minimum required quantity.
  
- _\[Sections 6.5.2 List of Insufficient Stock and 6.5.3 Shopping List are omitted for brevity. They detail features that check stock quantity in order to display customised lists to the user.\]_
+ _\[Sections 6.5.2 List of Insufficient Stock and 6.5.3 Shopping List are omitted for brevity. They detail features that check Stock quantity in order to display customised lists to the user.\]_
  
 #### 6.5.4 Design Considerations 
 
