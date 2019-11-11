@@ -145,14 +145,19 @@ Format: `list shopping`
    
 ## Contributions to Developer Guide
 
-This section shows my contributions made to the team’s Developer Guide. The full Developer Guide cannot be viewed online but can be downloaded [here](). I wrote sections 5.3.1, 6.3, and 6.5, which describe the Parser Modules, LoanList implementation, and Quantity feature respectively. 
+This section shows my contributions made to the team’s Developer Guide. The full Developer Guide cannot be viewed online but can be downloaded [here](). I wrote sections 5.3.1, 6.3, and 6.5, which describe the Parser Modules, LoanList implementation, and Minimum Quantity feature respectively. 
 
 Below is an extract from the introduction of section 6.3 about Loans. 
 
 ---
 ### 6.3 Loans 
 
-(API: LoanList.java, Loan.java, PersonList.java, Person.java, AddLoanCommand.java, AddPersonCommand.java)
+(API: [LoanList.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/LoanList.java),
+[Loan.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/Loan.java),
+[PersonList.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/PersonList.java),
+[Person.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/model/loans/Person.java),
+[AddLoanCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/add/AddLoanCommand.java),
+[AddPersonCommand.java](https://github.com/AY1920S1-CS2113T-F09-3/main/blob/master/src/main/java/eggventory/logic/commands/add/AddPersonCommand.java))
 
 The loans feature is an additional feature that marks and keeps track of Stock that is being loaned out to students. Each Loan is made from one Stock to one Person. The figure below details the overall architecture of the Loans feature, including how the Person class is related to Loans. 
 
